@@ -7,7 +7,7 @@ services:
 
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t palmseung/docker-react-app .
+  - docker build -t palmseung/docker-react-app -f Dockerfile .
 
 script:
   - docker run -e CI=true palmseung/docker-react-app npm run test -- --coverage
@@ -23,4 +23,3 @@ deploy:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-
